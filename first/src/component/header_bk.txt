@@ -1,0 +1,50 @@
+import React,{Component,Fragment} from 'react';
+//WAY TO WRITE A CLASS COMPONENT 
+
+
+class Header extends Component{
+    render() {
+        const myStyle={
+            header:{
+              backgroundColor:'tomato'
+            },
+            logo:{
+              fontSize :'30px',
+              color:'white',
+              textAlign:'center'
+
+            }
+        }
+ return(
+        <Fragment>
+            <header style={myStyle.header}>  
+                <div style={myStyle.logo}> React </div> 
+                  <center>
+                    <input/>
+                       <div style ={myStyle.logo}>user input here </div>
+                  </center>                
+            </header>
+             <hr/>
+        </Fragment>
+    )
+}
+}
+
+
+// WAY TO WRITE A FUNCTIONAL COMPONENT 
+// const Header = () => {
+//   return(
+//         <div>
+//           <center>
+//               <h1>  React  </h1>
+//           </center>
+//               <hr/>
+//         </div>
+
+
+//   ) 
+
+// }
+
+
+export default Header
