@@ -2,17 +2,37 @@ import React,{Component} from 'react';
 import  ReactDOM  from 'react-dom';
 import Header from './Header';
 import Footer from './Footer';
- class Home extends Component{
- render(){
-    return(
-        <div>
-            <Header/>
-            <h1> hii from react   </h1>
-            <Footer/>
-        </div>
-    )
- }
+import Product from './ProductDisplay'
+import JSON from './db.json';
 
- }
- export default Home 
+class Home extends Component {
+
+    constructor(props){
+        super(props)
+
+        this.state={
+            products:JSON,
+            filtered:JSON
+        }
+    }
+
+    filterProduct = (userText) => {
+        let output = this.state.products.filter((item) => {
+            return item.name.toLowerCase().indexOf(userText.toLowerCase()) > -1
+        })
+        this.setState({filtered:output})
+    }
+
+    render(){
+        return(
+            <>
+                <Header userInput={(data) => {this.filterProduct(data)}}/>
+                 <Product prodData={this.state.products}/> 
+                <Footer year="2022" month="Feb"/>
+            </>
+        )
+    }
+}
+
+export default Home;
 
